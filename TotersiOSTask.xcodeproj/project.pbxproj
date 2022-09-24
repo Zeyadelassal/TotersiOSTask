@@ -23,6 +23,11 @@
 		D6949A9928DF1CDC005600B8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6949A9828DF1CDC005600B8 /* Response.swift */; };
 		D6949A9E28DF3469005600B8 /* CodableInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6949A9D28DF3469005600B8 /* CodableInit.swift */; };
 		D6A887D628DF70F6001F4667 /* CharactersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A887D528DF70F6001F4667 /* CharactersManager.swift */; };
+		D6A887DA28DF7C3E001F4667 /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A887D928DF7C3E001F4667 /* CharactersResponse.swift */; };
+		D6A887DF28DF8006001F4667 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A887DE28DF8006001F4667 /* CharacterResponse.swift */; };
+		D6A887E328DF8563001F4667 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A887E228DF8563001F4667 /* Network.swift */; };
+		D6A887E528DF8AEC001F4667 /* CharactersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A887E428DF8AEC001F4667 /* CharactersRouter.swift */; };
+		D6A887E828DF9068001F4667 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A887E728DF9068001F4667 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,11 @@
 		D6949A9828DF1CDC005600B8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D6949A9D28DF3469005600B8 /* CodableInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableInit.swift; sourceTree = "<group>"; };
 		D6A887D528DF70F6001F4667 /* CharactersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersManager.swift; sourceTree = "<group>"; };
+		D6A887D928DF7C3E001F4667 /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
+		D6A887DE28DF8006001F4667 /* CharacterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
+		D6A887E228DF8563001F4667 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		D6A887E428DF8AEC001F4667 /* CharactersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRouter.swift; sourceTree = "<group>"; };
+		D6A887E728DF9068001F4667 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,8 @@
 		D6949A8728DF1BE6005600B8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D6A887E628DF9056001F4667 /* Extensions */,
+				D6A887E028DF837F001F4667 /* Constants */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -154,6 +166,7 @@
 		D6949A8B28DF1C37005600B8 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
+				D6A887E428DF8AEC001F4667 /* CharactersRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -161,6 +174,7 @@
 		D6A887D228DF7072001F4667 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				D6A887DB28DF7FC5001F4667 /* MarvelCharacterDetails */,
 				D6A887D328DF7078001F4667 /* MarvelCharacters */,
 			);
 			path = Features;
@@ -170,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				D6A887D428DF7082001F4667 /* Data */,
+				D6A887D828DF7C00001F4667 /* Model */,
 			);
 			path = MarvelCharacters;
 			sourceTree = "<group>";
@@ -180,6 +195,54 @@
 				D6A887D528DF70F6001F4667 /* CharactersManager.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		D6A887D828DF7C00001F4667 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6A887D928DF7C3E001F4667 /* CharactersResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6A887DB28DF7FC5001F4667 /* MarvelCharacterDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D6A887DC28DF7FD5001F4667 /* Data */,
+				D6A887DD28DF7FD9001F4667 /* Model */,
+			);
+			path = MarvelCharacterDetails;
+			sourceTree = "<group>";
+		};
+		D6A887DC28DF7FD5001F4667 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		D6A887DD28DF7FD9001F4667 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6A887DE28DF8006001F4667 /* CharacterResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6A887E028DF837F001F4667 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D6A887E228DF8563001F4667 /* Network.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		D6A887E628DF9056001F4667 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D6A887E728DF9068001F4667 /* String+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,13 +362,18 @@
 			files = (
 				D6949A7728DF1AB2005600B8 /* ViewController.swift in Sources */,
 				D6A887D628DF70F6001F4667 /* CharactersManager.swift in Sources */,
+				D6A887E528DF8AEC001F4667 /* CharactersRouter.swift in Sources */,
 				D6949A8F28DF1C71005600B8 /* URLRequestBuilder.swift in Sources */,
 				D6949A9E28DF3469005600B8 /* CodableInit.swift in Sources */,
 				D6949A7328DF1AB2005600B8 /* AppDelegate.swift in Sources */,
 				D6949A7528DF1AB2005600B8 /* SceneDelegate.swift in Sources */,
 				D6949A9928DF1CDC005600B8 /* Response.swift in Sources */,
+				D6A887E828DF9068001F4667 /* String+Extension.swift in Sources */,
+				D6A887E328DF8563001F4667 /* Network.swift in Sources */,
 				D6949A8D28DF1C54005600B8 /* HandleAlamofireResponse.swift in Sources */,
 				D6949A9528DF1CA0005600B8 /* ResponseError.swift in Sources */,
+				D6A887DF28DF8006001F4667 /* CharacterResponse.swift in Sources */,
+				D6A887DA28DF7C3E001F4667 /* CharactersResponse.swift in Sources */,
 				D6949A9328DF1C8C005600B8 /* APIRequestHandler.swift in Sources */,
 				D6949A9728DF1CB5005600B8 /* ServerResponse.swift in Sources */,
 				D6949A9128DF1C7E005600B8 /* APIResponse.swift in Sources */,

@@ -23,7 +23,7 @@ protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
 extension URLRequestBuilder {
     
     var url: URL {
-        var url = URL(string: Constants.KLMSTestingSrverBaseURL)!
+        var url = URL(string: CONST_API.BASE_URL)!
         url.appendPathComponent(path)
         return url
     }
@@ -31,7 +31,6 @@ extension URLRequestBuilder {
     var urlRequest: URLRequest {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue
-        urlRequest.allHTTPHeaderFields = mergeHeaders()
         urlRequest.cachePolicy = .reloadIgnoringLocalCacheData
         return urlRequest
     }
@@ -62,16 +61,7 @@ extension URLRequestBuilder {
         return try encoding.encode(urlRequest, with: paramaters)
     }
     
-    func getHeaders() -> HTTPHeaders {
-      
-    }
-    
-    private func mergeHeaders() -> HTTPHeaders {
-        guard let additionalHeaders = additionalHeaders else {return self.headers}
-        var mergedHeaders = self.headers
-        for (key,value) in additionalHeaders {
-            mergedHeaders[key] = value
-        }
-        return mergedHeaders
-    }
+//    func getHeaders() -> HTTPHeaders {
+//
+//    }
 }
