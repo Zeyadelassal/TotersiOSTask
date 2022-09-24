@@ -23,7 +23,7 @@ protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
 extension URLRequestBuilder {
     
     var url: URL {
-        var url = URL(string: CONST_API.BASE_URL)!
+        var url = URL(string: CONST_API.API_URL.BASE_URL)!
         url.appendPathComponent(path)
         return url
     }
@@ -36,7 +36,8 @@ extension URLRequestBuilder {
     }
     
     var headers: HTTPHeaders {
-        var headers = getHeaders()
+//        var headers = getHeaders()
+        var headers: HTTPHeaders = [:]
         return headers
     }
     

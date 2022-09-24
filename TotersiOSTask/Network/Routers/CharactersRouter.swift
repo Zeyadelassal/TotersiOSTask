@@ -20,25 +20,41 @@ enum CharactersRouter: URLRequestBuilder {
     var path: String {
         switch self {
         case .getCharacters:
-            return CONST_API.CHARACTERS
+            return CONST_API.API_URL.CHARACTERS
         case .getCharacterDetails(let id):
-            return CONST_API.CHARACTER_DETAILS.replacingOccurrences(of: "$$", with: String(id))
+            return CONST_API.API_URL.CHARACTER_DETAILS.replacingOccurrences(of: "$$", with: String(id))
         case .getCharacterComics(let id):
-            return CONST_API.CHARACTER_COMICS.replacingOccurrences(of: "$$", with: String(id))
+            return CONST_API.API_URL.CHARACTER_COMICS.replacingOccurrences(of: "$$", with: String(id))
         case .getCharacterEvents(let id):
-            return CONST_API.CHARACTER_EVENTS.replacingOccurrences(of: "$$", with: String(id))
+            return CONST_API.API_URL.CHARACTER_EVENTS.replacingOccurrences(of: "$$", with: String(id))
         case .getCharacterSeries(let id):
-            return CONST_API.CHARACTER_SERIES.replacingOccurrences(of: "$$", with: String(id))
+            return CONST_API.API_URL.CHARACTER_SERIES.replacingOccurrences(of: "$$", with: String(id))
         case .getCharacterStories(let id):
-            return CONST_API.CHARACTER_STORIES.replacingOccurrences(of: "$$", with: String(id))
+            return CONST_API.API_URL.CHARACTER_STORIES.replacingOccurrences(of: "$$", with: String(id))
         }
     }
 
     var paramaters: Parameters? {
-        
+        let timeStamp = getTimeStamp()
+        var parameters: Parameters = [:]
+        parameters[CONST_API.PARAMETER_KEY.API_KEY]    = CONST_API.PARAMETER_VALUE.PUBLIC_API_KEY
+        parameters[CONST_API.PARAMETER_KEY.TIME_STAMP] = timeStamp
+        parameters[CONST_API.PARAMETER_KEY.HASH]       = getMD5Hash(for: timeStamp)
+        return parameters
     }
     
+    var method: HTTPMethod {
+        return .get
+    }
     
-    var method: Alamofire.HTTPMethod
+    private func getTimeStamp() -> Int {
+        let since1970 = Date().timeIntervalSince1970
+        let time = Int(since1970 * 1000)
+        return time
+    }
 
+    private func getMD5Hash(for timeStamp: Int) -> String {
+        let stringMD5 = "\(timeStamp)" + CONST_API.PARAMETER_VALUE.PRIVATE_API_KEY + CONST_API.PARAMETER_VALUE.PUBLIC_API_KEY
+        return stringMD5.MD5
+    }
 }

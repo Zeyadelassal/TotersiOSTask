@@ -21,7 +21,7 @@ struct CharactersResponseData: Codable {
     enum CodingKeys: String, CodingKey {
         case count
         case total
-        case characters = "result"
+        case characters = "results"
     }
 }
 

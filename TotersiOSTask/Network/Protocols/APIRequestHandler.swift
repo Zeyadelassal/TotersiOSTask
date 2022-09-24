@@ -20,28 +20,24 @@ extension APIRequestHandler where Self: URLRequestBuilder {
     
     func send<T: APIResponse>(_ decoder: T.Type, progress: ((Progress) -> Void)? = nil, completion: CallResponse<T>) {
         if NetworkReachabilityManager()?.isReachable ?? false {
-            #if DEBUG
-            print("********************************************************")
-            print("RequestURL:",url.absoluteString)
-            print("RequestURLHeaders:",urlRequest.allHTTPHeaderFields ?? "No Headers")
-            print("RequestURLParameters:",paramaters ?? "No Parameters")
-            print("RequestEncoding",encoding)
-            print("********************************************************")
-            #endif
+            debugPrint("********************************************************")
+            debugPrint("RequestURL:",url.absoluteString)
+            debugPrint("RequestURLHeaders:",urlRequest.allHTTPHeaderFields ?? "No Headers")
+            debugPrint("RequestURLParameters:",paramaters ?? "No Parameters")
+            debugPrint("RequestEncoding",encoding)
+            debugPrint("********************************************************")
             AF.request(self).responseData { response in
                 self.handleResponse(response, completion: completion)
             }.responseString{ response in
-            #if DEBUG
-            print("########################################################")
-            print("RequestURL:",url.absoluteString)
-            print("Response:\(response)")
-            print("########################################################")
-            #endif
+            debugPrint("########################################################")
+            debugPrint("RequestURL:",url.absoluteString)
+            debugPrint("Response:\(response)")
+            debugPrint("########################################################")
             }
         } else {
-//            if !isCached {
-                completion?(ServerResponse.failure(ResponseError.offline))
-//            }
+            //            if !isCached {
+            completion?(ServerResponse.failure(ResponseError.offline))
+            //            }
         }
     }
 }

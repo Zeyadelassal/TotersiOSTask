@@ -8,9 +8,8 @@
 import Foundation
 
 struct CONST_API {
-    
-    struct URL {
-        static let BASE_URL           = "http://gateway.marvel.com"
+    struct API_URL {
+        static let BASE_URL           = "https://gateway.marvel.com"
         static let CHARACTERS         = "/v1/public/characters"
         static let CHARACTER_DETAILS  = "/v1/public/characters/$$"
         static let CHARACTER_COMICS   = "/v1/public/characters/$$/comics"
@@ -28,7 +27,6 @@ struct CONST_API {
     struct PARAMETER_VALUE {
         static let PUBLIC_API_KEY     = "beb3f258b022a06495a74b25aa1dd972"
         static let PRIVATE_API_KEY    = "66ff08bbcdd46a3e6914204a3b0b492bd8ee1c5e"
-
     }
 }
 

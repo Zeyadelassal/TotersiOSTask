@@ -34,7 +34,6 @@ extension HandleAlamofireResponse where Self: URLRequestBuilder {
                     completion?(ServerResponse.failure(responseData.error))
                 }
             } catch let error {
-                #if DEBUG
                 if let decodingError = error as? DecodingError {
                     switch decodingError {
                     case .typeMismatch(let key, let value):
@@ -49,7 +48,6 @@ extension HandleAlamofireResponse where Self: URLRequestBuilder {
                         debugPrint("ERROR: \(decodingError.localizedDescription)")
                     }
                 }
-                #endif
                 completion?(ServerResponse.failure(ResponseError.decoding))
             }
         }
