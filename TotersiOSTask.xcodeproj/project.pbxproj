@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4A34B144F12EA95D941FBDD2 /* Pods_TotersiOSTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5514327A6C2D50ABCA7AAE47 /* Pods_TotersiOSTask.framework */; };
+		D6546A5528E0E04100C2C810 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6546A5328E0E04100C2C810 /* CharacterCollectionViewCell.swift */; };
+		D6546A5628E0E04100C2C810 /* CharacterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6546A5428E0E04100C2C810 /* CharacterCollectionViewCell.xib */; };
+		D65F068328E0E1260037595E /* CharacterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F068228E0E1260037595E /* CharacterImageView.swift */; };
+		D65F068528E0E44A0037595E /* MarvelCharactersViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F068428E0E44A0037595E /* MarvelCharactersViewController+CollectionView.swift */; };
+		D65F068728E0E51D0037595E /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F068628E0E51D0037595E /* UICollectionView+Extension.swift */; };
+		D65F068928E0E5340037595E /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F068828E0E5340037595E /* NSObject+Extension.swift */; };
+		D65F068E28E0F5E80037595E /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F068C28E0F5E80037595E /* CharacterDetailsViewController.swift */; };
+		D65F068F28E0F5E80037595E /* CharacterDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65F068D28E0F5E80037595E /* CharacterDetailsViewController.xib */; };
 		D6949A7328DF1AB2005600B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6949A7228DF1AB2005600B8 /* AppDelegate.swift */; };
 		D6949A7528DF1AB2005600B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6949A7428DF1AB2005600B8 /* SceneDelegate.swift */; };
 		D6949A7728DF1AB2005600B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6949A7628DF1AB2005600B8 /* ViewController.swift */; };
@@ -43,6 +51,14 @@
 		5514327A6C2D50ABCA7AAE47 /* Pods_TotersiOSTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TotersiOSTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7C637789337B06856E9D10 /* Pods-TotersiOSTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TotersiOSTask.debug.xcconfig"; path = "Target Support Files/Pods-TotersiOSTask/Pods-TotersiOSTask.debug.xcconfig"; sourceTree = "<group>"; };
 		CA843D7B0662E10BC3557750 /* Pods-TotersiOSTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TotersiOSTask.release.xcconfig"; path = "Target Support Files/Pods-TotersiOSTask/Pods-TotersiOSTask.release.xcconfig"; sourceTree = "<group>"; };
+		D6546A5328E0E04100C2C810 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6546A5428E0E04100C2C810 /* CharacterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCollectionViewCell.xib; sourceTree = "<group>"; };
+		D65F068228E0E1260037595E /* CharacterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageView.swift; sourceTree = "<group>"; };
+		D65F068428E0E44A0037595E /* MarvelCharactersViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MarvelCharactersViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		D65F068628E0E51D0037595E /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		D65F068828E0E5340037595E /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		D65F068C28E0F5E80037595E /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
+		D65F068D28E0F5E80037595E /* CharacterDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailsViewController.xib; sourceTree = "<group>"; };
 		D6949A6F28DF1AB2005600B8 /* TotersiOSTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TotersiOSTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6949A7228DF1AB2005600B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6949A7428DF1AB2005600B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +121,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D6546A5228E0E01700C2C810 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D6546A5328E0E04100C2C810 /* CharacterCollectionViewCell.swift */,
+				D6546A5428E0E04100C2C810 /* CharacterCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D65F068128E0E1040037595E /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				D65F068228E0E1260037595E /* CharacterImageView.swift */,
+			);
+			path = ImageView;
+			sourceTree = "<group>";
+		};
+		D65F068B28E0F5C00037595E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D65F068C28E0F5E80037595E /* CharacterDetailsViewController.swift */,
+				D65F068D28E0F5E80037595E /* CharacterDetailsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D6949A6628DF1AB2005600B8 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +195,7 @@
 		D6949A8728DF1BE6005600B8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D65F068128E0E1040037595E /* ImageView */,
 				D6A887E628DF9056001F4667 /* Extensions */,
 				D6A887E028DF837F001F4667 /* Constants */,
 			);
@@ -232,6 +275,7 @@
 			children = (
 				D6A887DC28DF7FD5001F4667 /* Data */,
 				D6A887DD28DF7FD9001F4667 /* Model */,
+				D65F068B28E0F5C00037595E /* View */,
 			);
 			path = MarvelCharacterDetails;
 			sourceTree = "<group>";
@@ -267,6 +311,8 @@
 			isa = PBXGroup;
 			children = (
 				D6A887E728DF9068001F4667 /* String+Extension.swift */,
+				D65F068628E0E51D0037595E /* UICollectionView+Extension.swift */,
+				D65F068828E0E5340037595E /* NSObject+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,7 +320,9 @@
 		D6A887F128DFF545001F4667 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D6546A5228E0E01700C2C810 /* Cell */,
 				D6A887F228DFF573001F4667 /* MarvelCharactersViewController.swift */,
+				D65F068428E0E44A0037595E /* MarvelCharactersViewController+CollectionView.swift */,
 				D6A887F328DFF573001F4667 /* MarvelCharactersViewController.xib */,
 			);
 			path = View;
@@ -367,6 +415,8 @@
 				D6949A7F28DF1AB3005600B8 /* LaunchScreen.storyboard in Resources */,
 				D6A887F528DFF573001F4667 /* MarvelCharactersViewController.xib in Resources */,
 				D6949A7C28DF1AB3005600B8 /* Assets.xcassets in Resources */,
+				D65F068F28E0F5E80037595E /* CharacterDetailsViewController.xib in Resources */,
+				D6546A5628E0E04100C2C810 /* CharacterCollectionViewCell.xib in Resources */,
 				D6949A7A28DF1AB2005600B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,14 +478,18 @@
 				D6949A7328DF1AB2005600B8 /* AppDelegate.swift in Sources */,
 				D6949A7528DF1AB2005600B8 /* SceneDelegate.swift in Sources */,
 				D6949A9928DF1CDC005600B8 /* Response.swift in Sources */,
+				D6546A5528E0E04100C2C810 /* CharacterCollectionViewCell.swift in Sources */,
+				D65F068328E0E1260037595E /* CharacterImageView.swift in Sources */,
 				D6A887E828DF9068001F4667 /* String+Extension.swift in Sources */,
 				D6A887E328DF8563001F4667 /* Network.swift in Sources */,
 				D6949A8D28DF1C54005600B8 /* HandleAlamofireResponse.swift in Sources */,
 				D6949A9528DF1CA0005600B8 /* ResponseError.swift in Sources */,
 				D6A887FE28DFF5F3001F4667 /* MarvelCharactersWorker.swift in Sources */,
+				D65F068528E0E44A0037595E /* MarvelCharactersViewController+CollectionView.swift in Sources */,
 				D6A887DF28DF8006001F4667 /* CharacterStoriesResponse.swift in Sources */,
 				D6A887DA28DF7C3E001F4667 /* CharactersResponse.swift in Sources */,
 				D6949A9328DF1C8C005600B8 /* APIRequestHandler.swift in Sources */,
+				D65F068728E0E51D0037595E /* UICollectionView+Extension.swift in Sources */,
 				D6A887F828DFF58D001F4667 /* MarvelCharactersInteractor.swift in Sources */,
 				D6949A9728DF1CB5005600B8 /* ServerResponse.swift in Sources */,
 				D6A887FB28DFF5A7001F4667 /* MarvelCharactersPresenter.swift in Sources */,
@@ -443,8 +497,10 @@
 				D6A887EE28DFA8A8001F4667 /* CharacterEventsResponse.swift in Sources */,
 				D6949A9128DF1C7E005600B8 /* APIResponse.swift in Sources */,
 				D6A887EA28DFA6C7001F4667 /* CharacterDetailsResponse.swift in Sources */,
+				D65F068928E0E5340037595E /* NSObject+Extension.swift in Sources */,
 				D6A887F028DFC30D001F4667 /* CharacterSeriesResponse.swift in Sources */,
 				D6A887F428DFF573001F4667 /* MarvelCharactersViewController.swift in Sources */,
+				D65F068E28E0F5E80037595E /* CharacterDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
