@@ -62,10 +62,10 @@ enum CharacterEvents {
     //MARK: -View model
     struct ViewModel {
         let title: String
-        let desc: String?
-        let thumbnail: Thumbnail?
-        let startDate: String?
-        let endDate: String?
+        let desc: String
+        let thumbnail: String
+        let startDate: String
+        let endDate: String
         
         init(event: CharacterEvents.Event) {
             title = event.title ?? "N/A"

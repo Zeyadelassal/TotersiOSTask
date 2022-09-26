@@ -36,10 +36,4 @@ class MarvelCharactersViewController: UIViewController {
     }
 }
 
-extension MarvelCharactersViewController: MarvelCharactersViewProtocol {
-    func updateCharactersList(charactersViewModel: [CharactersList.ViewModel]) {
-        characters = charactersViewModel
-        charactersCollectionView.reloadData()
-        setColorViews(hidden: false)
-    }
-}
+

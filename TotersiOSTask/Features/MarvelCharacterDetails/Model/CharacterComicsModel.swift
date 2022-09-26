@@ -62,9 +62,9 @@ enum CharacterComics {
     //MARK: -View model
     struct ViewModel {
         let title: String
-        let desc: String?
-        let thumbnail: Thumbnail?
-        let pageCount: Int?
+        let desc: String
+        let thumbnail: String
+        let pageCount: Int
         
         init(comic: CharacterComics.Comic) {
             title = comic.title ?? "N/A"
