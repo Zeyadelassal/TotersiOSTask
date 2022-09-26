@@ -11,21 +11,34 @@ class MarvelCharactersPresenter: MarvelCharactersPresenterProtocol {
     
     weak var view: MarvelCharactersViewProtocol?
     
-    func handleCharactersList(result: Result<CharactersList.Response, ResponseError>) {
-        switch result {
-        case .success(let value):
-            if let charactersData = value.data, let characters = charactersData.characters {
-                let charactersViewModel = getCharactersViewModel(characters: characters)
-                view?.updateCharactersList(charactersViewModel: charactersViewModel)
-            } else {
-                // Error
-            }
-        case .failure(let error):
-            debugPrint("Error",error)
+    func handleCharactersList(characters: [Character]) {
+        if !characters.isEmpty {
+            let charactersViewModel = getCharactersViewModel(characters: characters)
+            view?.updateCharactersList(charactersViewModel: charactersViewModel)
+        } else {
+            
         }
     }
     
-    private func getCharactersViewModel(characters: [CharactersList.Character]) -> [CharactersList.ViewModel] {
+    func showError(error: ResponseError) {
+        
+    }
+    
+//    func handleCharactersList(result: Result<CharactersList.Response, ResponseError>) {
+//        switch result {
+//        case .success(let value):
+//            if let charactersData = value.data, let characters = charactersData.characters {
+//                let charactersViewModel = getCharactersViewModel(characters: characters)
+//                view?.updateCharactersList(charactersViewModel: charactersViewModel)
+//            } else {
+//                // Error
+//            }
+//        case .failure(let error):
+//            debugPrint("Error",error)
+//        }
+//    }
+    
+    private func getCharactersViewModel(characters: [Character]) -> [CharactersList.ViewModel] {
         var charactersViewModel = [CharactersList.ViewModel]()
         for character in characters {
             let characterViewModel = CharactersList.ViewModel(character: character)
