@@ -16,21 +16,21 @@ protocol APIRequestHandler: HandleAlamofireResponse {
     
 }
 
-extension APIRequestHandler where Self: URLRequestBuilder {
+extension APIRequestHandler{
     
-    func send<T: APIResponse>(_ decoder: T.Type, progress: ((Progress) -> Void)? = nil, completion: CallResponse<T>) {
+    func send<T: APIResponse>(_ request: URLRequestBuilder ,_ decoder: T.Type, progress: ((Progress) -> Void)? = nil, completion: CallResponse<T>) {
         if NetworkReachabilityManager()?.isReachable ?? false {
             debugPrint("********************************************************")
-            debugPrint("RequestURL:",url.absoluteString)
-            debugPrint("RequestURLHeaders:",urlRequest.allHTTPHeaderFields ?? "No Headers")
-            debugPrint("RequestURLParameters:",paramaters ?? "No Parameters")
-            debugPrint("RequestEncoding",encoding)
+            debugPrint("RequestURL:",request.url.absoluteString)
+            debugPrint("RequestURLHeaders:",request.urlRequest.allHTTPHeaderFields ?? "No Headers")
+            debugPrint("RequestURLParameters:",request.paramaters ?? "No Parameters")
+            debugPrint("RequestEncoding",request.encoding)
             debugPrint("********************************************************")
-            AF.request(self).responseData { response in
+            AF.request(request).responseData { response in
                 self.handleResponse(response, completion: completion)
             }.responseString{ response in
             debugPrint("########################################################")
-            debugPrint("RequestURL:",url.absoluteString)
+            debugPrint("RequestURL:",request.url.absoluteString)
             debugPrint("Response:\(response)")
             debugPrint("########################################################")
             }
@@ -41,3 +41,4 @@ extension APIRequestHandler where Self: URLRequestBuilder {
         }
     }
 }
+

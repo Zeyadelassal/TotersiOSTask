@@ -12,7 +12,7 @@ protocol HandleAlamofireResponse {
     func handleResponse<T: APIResponse>(_ response: AFDataResponse<Data>, completion: CallResponse<T>)
 }
 
-extension HandleAlamofireResponse where Self: URLRequestBuilder {
+extension HandleAlamofireResponse {
     
     func handleResponse<T: APIResponse>(_ response: AFDataResponse<Data>, completion: CallResponse<T>) {
         switch response.result {
