@@ -37,22 +37,6 @@ enum CharactersList {
             case characters = "results"
         }
     }
-
-    struct Character: Codable {
-        let id: Int?
-        let name: String?
-        let thumbnail: Thumbnail?
-    }
-
-    struct Thumbnail: Codable {
-        let path: String?
-        let thumbnailExtension: String
-        
-        enum CodingKeys: String, CodingKey {
-            case path
-            case thumbnailExtension = "extension"
-        }
-    }
     
     //MARK: -View model
     struct ViewModel {
@@ -63,6 +47,22 @@ enum CharactersList {
             id = character.id ?? 0
             thumbnail = (character.thumbnail?.path ?? "") + "." + (character.thumbnail?.thumbnailExtension ?? "")
         }
+    }
+}
+
+struct Character: Codable {
+    let id: Int?
+    let name: String?
+    let thumbnail: Thumbnail?
+}
+
+struct Thumbnail: Codable {
+    let path: String?
+    let thumbnailExtension: String
+    
+    enum CodingKeys: String, CodingKey {
+        case path
+        case thumbnailExtension = "extension"
     }
 }
 

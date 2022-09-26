@@ -20,7 +20,16 @@ class MarvelCharactersInteractor: MarvelCharactersInteractorProtocol, MarvalChar
         worker?.fetchAllMarvelCharacters(request: request) {
             [weak self] result in
             guard let self = self else {return}
-            self.presenter?.handleCharactersList(result: result)
+            switch result {
+            case .success(let value):
+                if let charactersData = value.data, let characters = charactersData.characters {
+                    self.presenter?.handleCharactersList(characters: characters)
+                } else {
+                    debugPrint("Error",value.error)
+                }
+            case .failure(let error):
+                debugPrint("Error",error)
+            }
         }
     }
     

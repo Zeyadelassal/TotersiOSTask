@@ -42,7 +42,7 @@ enum CharacterEvents {
         let id: Int?
         let title: String?
         let desc: String?
-        let thumbnail: CharactersList.Thumbnail?
+        let thumbnail: Thumbnail?
         let startDate: String?
         let endDate: String?
         
@@ -61,7 +61,7 @@ enum CharacterEvents {
         let id: Int
         let thumbnail: String
         
-        init(character: CharactersList.Character) {
+        init(character: Character) {
             id = character.id ?? 0
             thumbnail = (character.thumbnail?.path ?? "") + "." + (character.thumbnail?.thumbnailExtension ?? "")
         }

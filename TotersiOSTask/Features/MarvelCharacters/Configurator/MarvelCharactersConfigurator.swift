@@ -10,7 +10,6 @@ import Foundation
 class MarvelCharactersConfigurator {
     
     static func configureScene(viewController: MarvelCharactersViewController) {
-        
         let interactor = MarvelCharactersInteractor()
         let worker = MarvelCharactersWorker(networkManager: NetworkManager())
         let presenter = MarvelCharactersPresenter()

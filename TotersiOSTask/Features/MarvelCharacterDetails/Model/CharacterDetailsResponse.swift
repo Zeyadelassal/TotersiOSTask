@@ -29,7 +29,7 @@ enum CharacterDetails {
     struct CharacterDetailsData: Codable {
         let count: Int?
         let total: Int?
-        let characters: [CharactersList.Character]?
+        let characters: [Character]?
         
         enum CodingKeys: String, CodingKey {
             case count
@@ -43,7 +43,7 @@ enum CharacterDetails {
         let id: Int
         let thumbnail: String
         
-        init(character: CharactersList.Character) {
+        init(character: Character) {
             id = character.id ?? 0
             thumbnail = (character.thumbnail?.path ?? "") + "." + (character.thumbnail?.thumbnailExtension ?? "")
         }
