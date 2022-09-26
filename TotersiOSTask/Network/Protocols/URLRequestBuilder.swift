@@ -51,7 +51,7 @@ extension URLRequestBuilder {
     
     var encoding: ParameterEncoding {
         switch method {
-        case .get:
+        case .getMethod:
             return URLEncoding.default
         default:
             return JSONEncoding.default
