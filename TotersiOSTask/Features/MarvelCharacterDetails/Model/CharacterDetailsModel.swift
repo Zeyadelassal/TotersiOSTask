@@ -1,5 +1,5 @@
 //
-//  CharacterComicsResponse.swift
+//  CharacterDetailsModel.swift
 //  TotersiOSTask
 //
 //  Created by Zeyad Elassal on 24/09/2022.
@@ -7,13 +7,16 @@
 
 import Foundation
 
-enum CharacterComics {
+enum CharacterDetails {
     
     //MARK: -Request
     
     struct Request: URLRequestBuilder {
-        var path: String = CONST_API.API_URL.CHARACTER_COMICS
+        let id: Int
         var method: HTTPMethod = .getMethod
+        var path: String{
+            return CONST_API.API_URL.CHARACTER_DETAILS.replacingOccurrences(of: "$$", with: String(id))
+        }
         var paramaters: [String:Any]? {
             return createGetParameters()
         }
@@ -23,46 +26,28 @@ enum CharacterComics {
     struct Response: APIResponse {
         var code: Int
         var message: String?
-        var data: CharacterComicsData?
+        var data: CharacterDetailsData?
     }
     
-    struct CharacterComicsData: Codable {
+    struct CharacterDetailsData: Codable {
         let count: Int?
         let total: Int?
-        let comics: [Comic]?
+        let characters: [Character]?
         
         enum CodingKeys: String, CodingKey {
             case count
             case total
-            case comics = "results"
+            case characters = "results"
         }
     }
-    
-    struct Comic: Codable {
-        let id: Int?
-        let title: String?
-        let desc: String?
-        let thumbnail: Thumbnail?
-        let pageCount: Int?
-        
-        enum CodingKeys: String, CodingKey {
-            case id
-            case title
-            case desc      = "description"
-            case thumbnail
-            case pageCount
-        }
-    }
-
-
     
     //MARK: -View model
     struct ViewModel {
-        let id: Int
+        let name: String
         let thumbnail: String
         
         init(character: Character) {
-            id = character.id ?? 0
+            name = character.name ?? ""
             thumbnail = (character.thumbnail?.path ?? "") + "." + (character.thumbnail?.thumbnailExtension ?? "")
         }
     }

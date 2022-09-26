@@ -1,5 +1,5 @@
 //
-//  CharacterEventsResponse.swift
+//  CharacterComicsModel.swift
 //  TotersiOSTask
 //
 //  Created by Zeyad Elassal on 24/09/2022.
@@ -7,13 +7,16 @@
 
 import Foundation
 
-enum CharacterEvents {
+enum CharacterComics {
     
     //MARK: -Request
     
     struct Request: URLRequestBuilder {
-        var path: String = CONST_API.API_URL.CHARACTER_EVENTS
+        let id: Int
         var method: HTTPMethod = .getMethod
+        var path: String {
+            CONST_API.API_URL.CHARACTER_COMICS.replacingOccurrences(of: "$$", with: String(id))
+        }
         var paramaters: [String:Any]? {
             return createGetParameters()
         }
@@ -23,47 +26,51 @@ enum CharacterEvents {
     struct Response: APIResponse {
         var code: Int
         var message: String?
-        var data: CharacterEventsData?
+        var data: CharacterComicsData?
     }
     
-    struct CharacterEventsData: Codable {
+    struct CharacterComicsData: Codable {
         let count: Int?
         let total: Int?
-        let events: [Event]?
+        let comics: [Comic]?
         
         enum CodingKeys: String, CodingKey {
             case count
             case total
-            case events = "results"
+            case comics = "results"
         }
     }
     
-    struct Event: Codable {
+    struct Comic: Codable {
         let id: Int?
         let title: String?
         let desc: String?
         let thumbnail: Thumbnail?
-        let startDate: String?
-        let endDate: String?
+        let pageCount: Int?
         
         enum CodingKeys: String, CodingKey {
             case id
             case title
             case desc      = "description"
             case thumbnail
-            case startDate = "start"
-            case endDate   = "end"
+            case pageCount
         }
     }
 
+
+    
     //MARK: -View model
     struct ViewModel {
-        let id: Int
-        let thumbnail: String
+        let title: String
+        let desc: String?
+        let thumbnail: Thumbnail?
+        let pageCount: Int?
         
-        init(character: Character) {
-            id = character.id ?? 0
-            thumbnail = (character.thumbnail?.path ?? "") + "." + (character.thumbnail?.thumbnailExtension ?? "")
+        init(comic: CharacterComics.Comic) {
+            title = comic.title ?? "N/A"
+            desc = comic.desc ?? "N/A"
+            thumbnail = (comic.thumbnail?.path ?? "") + "." + (comic.thumbnail?.thumbnailExtension ?? "")
+            pageCount = comic.pageCount ?? 0
         }
     }
 }
