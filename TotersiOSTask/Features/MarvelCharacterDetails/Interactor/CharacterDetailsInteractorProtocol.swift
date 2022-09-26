@@ -13,5 +13,5 @@ protocol CharacterDetailsInteractorProtocol: AnyObject {
     var characterStories: [CharacterStories.Story]? {get set}
     var characterEvents: [CharacterEvents.Event]? {get set}
     var characterSeries: [CharacterSeries.Series]? {get set}
-    func fetchCharacterDetails()
+    func fetchCharacterDetails(for id: Int)
 }

@@ -11,25 +11,27 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
 
     var worker: CharacterDetailsWorkerProtocol?
     var presenter: CharacterDetailsPresenterProtocol?
-    let dispatchGroup = DispatchGroup()
+    private let dispatchGroup = DispatchGroup()
     var characterDetails: Character?
     var characterComics: [CharacterComics.Comic]?
     var characterStories: [CharacterStories.Story]?
     var characterEvents: [CharacterEvents.Event]?
     var characterSeries: [CharacterSeries.Series]?
-
-    func fetchCharacterDetails() {
-        setupDispatchGroup()
+    private var id: Int = 0
+    
+    func fetchCharacterDetails(for id: Int) {
+        self.id = id
         getCharacterDetails()
         getCharacterComics()
         getCharacterEvents()
         getCharacterStories()
         getCharacterSeries()
+        setupDispatchGroup()
     }
     
     private func getCharacterDetails() {
         dispatchGroup.enter()
-        worker?.fetchCharacterDetails(request: CharacterDetails.Request()) {
+        worker?.fetchCharacterDetails(request: CharacterDetails.Request(id: id)) {
             [weak self] result in
             guard let self = self else {return}
             switch result {
@@ -48,7 +50,7 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
     
     private func getCharacterComics() {
         dispatchGroup.enter()
-        worker?.fetchCharacterComics(request: CharacterComics.Request()) {
+        worker?.fetchCharacterComics(request: CharacterComics.Request(id: id)) {
             [weak self] result in
             guard let self = self else {return}
             switch result {
@@ -67,7 +69,7 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
     
     private func getCharacterStories() {
         dispatchGroup.enter()
-        worker?.fetchCharacterStories(request: CharacterStories.Request()) {
+        worker?.fetchCharacterStories(request: CharacterStories.Request(id: id)) {
             [weak self] result in
             guard let self = self else {return}
             switch result {
@@ -86,7 +88,7 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
     
     private func getCharacterEvents() {
         dispatchGroup.enter()
-        worker?.fetchCharacterEvents(request: CharacterEvents.Request()) {
+        worker?.fetchCharacterEvents(request: CharacterEvents.Request(id: id)) {
             [weak self] result in
             guard let self = self else {return}
             switch result {
@@ -105,7 +107,7 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
     
     private func getCharacterSeries() {
         dispatchGroup.enter()
-        worker?.fetchCharacterSeries(request: CharacterSeries.Request()) {
+        worker?.fetchCharacterSeries(request: CharacterSeries.Request(id: id)) {
             [weak self] result in
             guard let self = self else {return}
             switch result {
@@ -121,21 +123,16 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
             }
         }
     }
-    
+        
     private func setupDispatchGroup() {
         let dispatchWorkItem = DispatchWorkItem() {
             [weak self] in
             guard let self = self else {return}
-            guard let characterDetails = self.characterDetails else {return}
-            guard let characterComics = self.characterComics else {return}
-            guard let characterStories = self.characterStories else {return}
-            guard let characterEvents = self.characterEvents else {return}
-            guard let characterSeries = self.characterSeries else {return}
-            self.presenter?.handleCharacterDetails(character: characterDetails)
-            self.presenter?.handleCharacterComics(comics: characterComics)
-            self.presenter?.handleCharacterStories(stories: characterStories)
-            self.presenter?.handleCharacterEvents(events: characterEvents)
-            self.presenter?.handleCharacterSeries(series: characterSeries)
+            self.presenter?.handleCharacterDetails(character: self.characterDetails)
+            self.presenter?.handleCharacterComics(comics: self.characterComics)
+            self.presenter?.handleCharacterStories(stories: self.characterStories)
+            self.presenter?.handleCharacterEvents(events: self.characterEvents)
+            self.presenter?.handleCharacterSeries(series: self.characterSeries)
         }
         dispatchGroup.notify(queue: .main, work: dispatchWorkItem)
     }
