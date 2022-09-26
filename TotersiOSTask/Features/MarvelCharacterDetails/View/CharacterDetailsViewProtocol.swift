@@ -8,5 +8,9 @@
 import Foundation
 
 protocol CharacterDetailsViewProtocol: AnyObject {
-    
+    func updateCharacterDetails(characterDetails: CharacterDetails.ViewModel)
+    func updateCharacterComics(comics: [CharacterComics.ViewModel])
+    func updateCharacterEvents(events: [CharacterEvents.ViewModel])
+    func updateCharacterStories(stories: [CharacterStories.ViewModel])
+    func updateCharacterSeries(series: [CharacterSeries.ViewModel])
 }
