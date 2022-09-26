@@ -53,7 +53,15 @@ enum CharactersList {
 struct Character: Codable {
     let id: Int?
     let name: String?
+    let desc: String?
     let thumbnail: Thumbnail?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case desc      = "description"
+        case thumbnail
+    }
 }
 
 struct Thumbnail: Codable {

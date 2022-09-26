@@ -44,10 +44,12 @@ enum CharacterDetails {
     //MARK: -View model
     struct ViewModel {
         let name: String
+        let desc: String
         let thumbnail: String
         
         init(character: Character) {
             name = character.name ?? ""
+            desc = character.desc ?? ""
             thumbnail = (character.thumbnail?.path ?? "") + "." + (character.thumbnail?.thumbnailExtension ?? "")
         }
     }
