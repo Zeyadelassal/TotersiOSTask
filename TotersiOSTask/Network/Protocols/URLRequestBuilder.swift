@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
+protocol URLRequestBuilder: URLRequestConvertible {
     var paramaters: Parameters? { get }
     var path: String { get }
     var method: HTTPMethod { get }
@@ -36,7 +36,7 @@ extension URLRequestBuilder {
     }
     
     var headers: HTTPHeaders {
-//        var headers = getHeaders()
+        //        var headers = getHeaders()
         var headers: HTTPHeaders = [:]
         return headers
     }
@@ -60,6 +60,26 @@ extension URLRequestBuilder {
     
     func asURLRequest() throws -> URLRequest {
         return try encoding.encode(urlRequest, with: paramaters)
+    }
+        
+    func createGetParameters() -> Parameters{
+        let timeStamp = getTimeStamp()
+        var parameters: Parameters = [:]
+        parameters[CONST_API.PARAMETER_KEY.API_KEY]    = CONST_API.PARAMETER_VALUE.PUBLIC_API_KEY
+        parameters[CONST_API.PARAMETER_KEY.TIME_STAMP] = timeStamp
+        parameters[CONST_API.PARAMETER_KEY.HASH]       = getMD5Hash(for: timeStamp)
+        return parameters
+    }
+    
+    private func getTimeStamp() -> Int {
+        let since1970 = Date().timeIntervalSince1970
+        let time = Int(since1970 * 1000)
+        return time
+    }
+
+    private func getMD5Hash(for timeStamp: Int) -> String {
+        let stringMD5 = "\(timeStamp)" + CONST_API.PARAMETER_VALUE.PRIVATE_API_KEY + CONST_API.PARAMETER_VALUE.PUBLIC_API_KEY
+        return stringMD5.MD5
     }
     
 //    func getHeaders() -> HTTPHeaders {

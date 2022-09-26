@@ -9,21 +9,37 @@ import UIKit
 
 class MarvelCharactersViewController: UIViewController {
 
+    @IBOutlet weak var charactersCollectionView: UICollectionView!
+    @IBOutlet weak var upperColorView: UIView!
+    @IBOutlet weak var lowerColorView: UIView!
+    
+    var interactor: MarvelCharactersInteractor?
+    var router: MarvelCharactersRouterProtocol?
+    
+    var characters = [CharactersList.ViewModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        MarvelCharactersConfigurator.configureScene(viewController: self)
+        setColorViews(hidden: true)
+        setupCollectionView()
+        fetchMarvelCharacters()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setColorViews(hidden: Bool) {
+        upperColorView.isHidden = hidden
+        lowerColorView.isHidden = hidden
     }
-    */
+    
+    func fetchMarvelCharacters() {
+        interactor?.fetchMarvelCharacters()
+    }
+}
 
+extension MarvelCharactersViewController: MarvelCharactersViewProtocol {
+    func updateCharactersList(charactersViewModel: [CharactersList.ViewModel]) {
+        characters = charactersViewModel
+        charactersCollectionView.reloadData()
+        setColorViews(hidden: false)
+    }
 }
