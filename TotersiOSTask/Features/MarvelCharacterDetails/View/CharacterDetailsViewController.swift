@@ -7,9 +7,13 @@
 
 import UIKit
 
-class CharacterDetailsViewController: UIViewController, CharacterDetailsViewProtocol{
-    
+class CharacterDetailsViewController: UIViewController{
+   
     @IBOutlet weak var characterImageView: CharacterImageView!
+    @IBOutlet weak var characterNameLabel: UILabel!
+    @IBOutlet weak var characterDescLabel: UILabel!
+    @IBOutlet weak var characterDetailsTableView: UITableView!
+    @IBOutlet weak var characterDetailsHeighConstraint: NSLayoutConstraint!
     
     var interactor: CharacterDetailsInteractorProtocol?
     var router: CharacterDetailsRouterProtocol?
@@ -18,20 +22,9 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsViewProt
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        characterImageView.setImage(thumbnail:  "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg")
-        // Do any additional setup after loading the view.
+        CharacterDetailsConfigurator.configureScene(viewController: self)
+        interactor?.fetchCharacterDetails(for: id ?? 0)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
