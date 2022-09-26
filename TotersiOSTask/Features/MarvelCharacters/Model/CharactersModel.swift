@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 enum CharactersList {
     
@@ -14,7 +13,7 @@ enum CharactersList {
     
     struct Request: URLRequestBuilder {
         var path: String = CONST_API.API_URL.CHARACTERS
-        var method: HTTPMethod = .get
+        var method: HTTPMethod = .getMethod
         var paramaters: [String:Any]? {
             return createGetParameters()
         }

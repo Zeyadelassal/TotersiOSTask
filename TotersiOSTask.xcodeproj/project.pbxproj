@@ -24,6 +24,7 @@
 		D65F069C28E12A6B0037595E /* MarvelCharactersPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F069B28E12A6B0037595E /* MarvelCharactersPresenterProtocol.swift */; };
 		D65F069F28E136CE0037595E /* MarvelCharactersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F069E28E136CE0037595E /* MarvelCharactersRouter.swift */; };
 		D65F06A128E136D80037595E /* MarvelCharactersRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F06A028E136D80037595E /* MarvelCharactersRouterProtocol.swift */; };
+		D65F06A328E1466B0037595E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F06A228E1466B0037595E /* HTTPMethod.swift */; };
 		D6949A7328DF1AB2005600B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6949A7228DF1AB2005600B8 /* AppDelegate.swift */; };
 		D6949A7528DF1AB2005600B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6949A7428DF1AB2005600B8 /* SceneDelegate.swift */; };
 		D6949A7728DF1AB2005600B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6949A7628DF1AB2005600B8 /* ViewController.swift */; };
@@ -75,6 +76,7 @@
 		D65F069B28E12A6B0037595E /* MarvelCharactersPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharactersPresenterProtocol.swift; sourceTree = "<group>"; };
 		D65F069E28E136CE0037595E /* MarvelCharactersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharactersRouter.swift; sourceTree = "<group>"; };
 		D65F06A028E136D80037595E /* MarvelCharactersRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharactersRouterProtocol.swift; sourceTree = "<group>"; };
+		D65F06A228E1466B0037595E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		D6949A6F28DF1AB2005600B8 /* TotersiOSTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TotersiOSTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6949A7228DF1AB2005600B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6949A7428DF1AB2005600B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				D6949A8A28DF1C2E005600B8 /* Response Handling */,
 				D6949A8928DF1C27005600B8 /* Protocols */,
 				D65F069928E11FAA0037595E /* NetworkManager.swift */,
+				D65F06A228E1466B0037595E /* HTTPMethod.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				D65F068728E0E51D0037595E /* UICollectionView+Extension.swift in Sources */,
 				D6A887F828DFF58D001F4667 /* MarvelCharactersInteractor.swift in Sources */,
 				D6949A9728DF1CB5005600B8 /* ServerResponse.swift in Sources */,
+				D65F06A328E1466B0037595E /* HTTPMethod.swift in Sources */,
 				D6A887FB28DFF5A7001F4667 /* MarvelCharactersPresenter.swift in Sources */,
 				D6A887EC28DFA760001F4667 /* CharacterComicsResponse.swift in Sources */,
 				D6A887EE28DFA8A8001F4667 /* CharacterEventsResponse.swift in Sources */,
