@@ -56,15 +56,17 @@ enum CharacterStories {
     }
 
     //MARK: -View model
-    struct ViewModel {
-        let title: String
-        let desc: String
-        let thumbnail: String
+    struct ViewModel: ViewModelProtocol {
+        var title: String
+        var desc: String
+        var thumbnail: String
+        var extra: String
         
         init(story: CharacterStories.Story) {
             title = story.title ?? "N/A"
-            desc = story.desc ?? "N/A"
+            desc = story.desc ?? ""
             thumbnail = (story.thumbnail?.path ?? "") + "." + (story.thumbnail?.thumbnailExtension ?? "")
+            extra = ""
         }
     }
 }

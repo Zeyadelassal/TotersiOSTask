@@ -60,19 +60,24 @@ enum CharacterEvents {
     }
 
     //MARK: -View model
-    struct ViewModel {
-        let title: String
-        let desc: String
-        let thumbnail: String
-        let startDate: String
-        let endDate: String
+    struct ViewModel: ViewModelProtocol {
+        var title: String
+        var desc: String
+        var thumbnail: String
+        var extra: String
         
         init(event: CharacterEvents.Event) {
             title = event.title ?? "N/A"
-            desc = event.desc ?? "N/A"
+            desc = event.desc ?? ""
             thumbnail = (event.thumbnail?.path ?? "") + "." + (event.thumbnail?.thumbnailExtension ?? "")
-            startDate = event.startDate ?? "N/A"
-            endDate = event.endDate ?? "N/A"
+            if let startDate = event.startDate {
+                extra = "Date: " + startDate
+                if let endDate = event.endDate {
+                    extra = extra + " --> " + endDate
+                }
+            } else {
+                extra = ""
+            }
         }
     }
 }

@@ -58,17 +58,21 @@ enum CharacterSeries {
     }
 
     //MARK: -View model
-    struct ViewModel {
-        let title: String
-        let desc: String
-        let thumbnail: String
-        let rating: String
+    struct ViewModel: ViewModelProtocol {
+        var title: String
+        var desc: String
+        var thumbnail: String
+        var extra: String
 
         init(series: CharacterSeries.Series) {
             title = series.title ?? "N/A"
             desc = series.desc ?? "N/A"
             thumbnail = (series.thumbnail?.path ?? "") + "." + (series.thumbnail?.thumbnailExtension ?? "")
-            rating = series.rating ?? "N/A"
+            if let rating = series.rating {
+                extra = "Rating: \(rating)"
+            } else {
+                extra = ""
+            }
         }
     }
 }

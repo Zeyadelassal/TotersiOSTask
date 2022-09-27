@@ -60,17 +60,21 @@ enum CharacterComics {
 
     
     //MARK: -View model
-    struct ViewModel {
-        let title: String
-        let desc: String
-        let thumbnail: String
-        let pageCount: Int
+    struct ViewModel: ViewModelProtocol {
+        var title: String
+        var desc: String
+        var thumbnail: String
+        var extra: String
         
         init(comic: CharacterComics.Comic) {
             title = comic.title ?? "N/A"
-            desc = comic.desc ?? "N/A"
+            desc = comic.desc ?? ""
             thumbnail = (comic.thumbnail?.path ?? "") + "." + (comic.thumbnail?.thumbnailExtension ?? "")
-            pageCount = comic.pageCount ?? 0
+            if let pageCount = comic.pageCount {
+                extra = "Number of pages: \(pageCount)"
+            } else {
+                extra = ""
+            }
         }
     }
 }
