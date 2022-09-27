@@ -8,11 +8,11 @@
 import Foundation
 
 protocol CharacterDetailsPresenterProtocol: AnyObject {
-    func handleCharacterDetails(character: Character)
-    func handleCharacterComics(comics: [CharacterComics.Comic])
-    func handleCharacterStories(stories: [CharacterStories.Story])
-    func handleCharacterEvents(events: [CharacterEvents.Event])
-    func handleCharacterSeries(series: [CharacterSeries.Series])
+    func handleCharacterDetails(character: Character?)
+    func handleCharacterComics(comics: [CharacterComics.Comic]?)
+    func handleCharacterStories(stories: [CharacterStories.Story]?)
+    func handleCharacterEvents(events: [CharacterEvents.Event]?)
+    func handleCharacterSeries(series: [CharacterSeries.Series]?)
     func showError(error: ResponseError)
 }
 
