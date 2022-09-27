@@ -11,9 +11,9 @@ extension MarvelCharactersViewController: MarvelCharactersViewProtocol {
     func updateCharactersList(charactersViewModel: [CharactersList.ViewModel]) {
         stopLoader()
         removeErrorView()
-        charactersCollectionView.endRefresh()
         characters.append(contentsOf: charactersViewModel)
         charactersCollectionView.reloadData()
+        charactersCollectionView.endRefresh()
         isFetchingData = false
         setColorViews(hidden: false)
     }

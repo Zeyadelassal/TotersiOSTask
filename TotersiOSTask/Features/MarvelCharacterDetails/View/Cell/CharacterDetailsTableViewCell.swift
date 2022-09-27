@@ -31,13 +31,6 @@ class CharacterDetailsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-//        UIView.animate(withDuration: 0.25) {
-//            if self.hammerArrowImage.transform == .identity {
-//                self.hammerArrowImage.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
-//            } else {
-//                self.hammerArrowImage.transform = .identity
-//            }
-//        }
     }
     
     func setupHeaderCell(title: String) {

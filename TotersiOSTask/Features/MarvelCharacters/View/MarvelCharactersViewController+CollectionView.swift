@@ -19,6 +19,8 @@ extension MarvelCharactersViewController: UICollectionViewDelegate {
     }
     
     @objc func refresh() {
+        characters.removeAll()
+        charactersCollectionView.reloadData()
         fetchMarvelCharacters(isLoading: false, isRefreshing: true)
     }
     
