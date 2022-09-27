@@ -15,6 +15,11 @@ extension MarvelCharactersViewController: UICollectionViewDelegate {
         charactersCollectionView.registerCell(CharacterCollectionViewCell.self)
         charactersCollectionView.showsVerticalScrollIndicator = false
         charactersCollectionView.backgroundColor = .clear
+        charactersCollectionView.setupRefreshControl(target: self, onRefresh: #selector(self.refresh))
+    }
+    
+    @objc func refresh() {
+        interactor?.fetchMarvelCharacters(isRefreshing: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

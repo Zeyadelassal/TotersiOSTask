@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MarvelCharactersInteractorProtocol: AnyObject {
-    func fetchMarvelCharacters()
+    func fetchMarvelCharacters(isRefreshing: Bool)
     func setSelectedCharacterId(id: Int)
 }
 

@@ -15,7 +15,8 @@ class MarvelCharactersInteractor: MarvelCharactersInteractorProtocol, MarvalChar
     var offset = 0
     var id: Int = 0
 
-    func fetchMarvelCharacters() {
+    func fetchMarvelCharacters(isRefreshing: Bool = false) {
+        if isRefreshing {offset = 0}
         let request = CharactersList.Request(offset: offset)
         worker?.fetchAllMarvelCharacters(request: request) {
             [weak self] result in

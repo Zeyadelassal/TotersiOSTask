@@ -9,6 +9,7 @@ import UIKit
 
 extension MarvelCharactersViewController: MarvelCharactersViewProtocol {
     func updateCharactersList(charactersViewModel: [CharactersList.ViewModel]) {
+        charactersCollectionView.endRefresh()
         characters.append(contentsOf: charactersViewModel)
         charactersCollectionView.reloadData()
         isFetchingData = false
