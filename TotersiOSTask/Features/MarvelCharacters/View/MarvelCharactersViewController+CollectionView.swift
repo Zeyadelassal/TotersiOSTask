@@ -11,6 +11,7 @@ extension MarvelCharactersViewController: UICollectionViewDelegate {
     func setupCollectionView() {
         charactersCollectionView.delegate = self
         charactersCollectionView.dataSource = self
+        charactersCollectionView.prefetchDataSource = self
         charactersCollectionView.registerCell(CharacterCollectionViewCell.self)
         charactersCollectionView.showsVerticalScrollIndicator = false
         charactersCollectionView.backgroundColor = .clear
@@ -52,3 +53,14 @@ extension MarvelCharactersViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: height)
     }
 }
+
+extension MarvelCharactersViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if indexPath.item >= characters.count - 3 && !isFetchingData {
+                fetchMarvelCharacters()
+            }
+        }
+    }
+}
+

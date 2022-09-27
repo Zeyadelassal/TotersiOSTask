@@ -22,6 +22,7 @@ struct CONST_API {
         static let API_KEY            = "apikey"
         static let HASH               = "hash"
         static let TIME_STAMP         = "ts"
+        static let OFFSET             = "offset"
     }
     
     struct PARAMETER_VALUE {

@@ -16,6 +16,7 @@ class MarvelCharactersViewController: UIViewController {
     var interactor: MarvelCharactersInteractor?
     var router: MarvelCharactersRouterProtocol?
     
+    var isFetchingData: Bool = false
     var characters = [CharactersList.ViewModel]()
     
     override func viewDidLoad() {
@@ -32,6 +33,7 @@ class MarvelCharactersViewController: UIViewController {
     }
     
     func fetchMarvelCharacters() {
+        isFetchingData = true
         interactor?.fetchMarvelCharacters()
     }
 }

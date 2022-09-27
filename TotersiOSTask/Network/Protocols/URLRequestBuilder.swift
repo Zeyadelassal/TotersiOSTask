@@ -62,12 +62,15 @@ extension URLRequestBuilder {
         return try encoding.encode(urlRequest, with: paramaters)
     }
         
-    func createGetParameters() -> Parameters{
+    func createGetParameters(with offset: Int? = nil) -> Parameters{
         let timeStamp = getTimeStamp()
         var parameters: Parameters = [:]
         parameters[CONST_API.PARAMETER_KEY.API_KEY]    = CONST_API.PARAMETER_VALUE.PUBLIC_API_KEY
         parameters[CONST_API.PARAMETER_KEY.TIME_STAMP] = timeStamp
         parameters[CONST_API.PARAMETER_KEY.HASH]       = getMD5Hash(for: timeStamp)
+        if let offset = offset {
+            parameters[CONST_API.PARAMETER_KEY.OFFSET] = offset
+        }
         return parameters
     }
     

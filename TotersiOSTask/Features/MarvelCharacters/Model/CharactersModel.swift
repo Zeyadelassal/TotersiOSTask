@@ -14,8 +14,9 @@ enum CharactersList {
     struct Request: URLRequestBuilder {
         var path: String = CONST_API.API_URL.CHARACTERS
         var method: HTTPMethod = .getMethod
+        var offset: Int
         var paramaters: [String:Any]? {
-            return createGetParameters()
+            return createGetParameters(with: offset)
         }
     }
     
