@@ -70,10 +70,10 @@ enum CharacterEvents {
             title = event.title ?? "N/A"
             desc = event.desc ?? ""
             thumbnail = (event.thumbnail?.path ?? "") + "." + (event.thumbnail?.thumbnailExtension ?? "")
-            if let startDate = event.startDate {
-                extra = "Date: " + startDate
-                if let endDate = event.endDate {
-                    extra = extra + " --> " + endDate
+            if let startDate = event.startDate, let formattedStartDate = startDate.components(separatedBy: " ").first {
+                extra = "Date: " + formattedStartDate
+                if let endDate = event.endDate, let formattedEndDate = endDate.components(separatedBy: " ").first{
+                    extra = extra + " --> " + formattedEndDate
                 }
             } else {
                 extra = ""
