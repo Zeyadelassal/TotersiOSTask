@@ -10,7 +10,7 @@ import UIKit
 extension CharacterDetailsViewController: CharacterDetailsViewProtocol {
     func updateCharacterDetails(characterDetails: CharacterDetails.ViewModel) {
         characterImageView.setImage(thumbnail: characterDetails.thumbnail)
-        characterNameLabel.text = characterDetails.name
+        characterNameLabel.text = "\(characterDetails.name)  #\(characterDetails.id)"
         characterDescLabel.text = characterDetails.desc
     }
     
