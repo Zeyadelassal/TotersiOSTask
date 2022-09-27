@@ -26,12 +26,17 @@ class CharacterDetailsViewController: UIViewController{
         CharacterDetailsConfigurator.configureScene(viewController: self)
         setupLabels()
         setupTableView()
-        interactor?.fetchCharacterDetails(for: id ?? 0)
+        fetchCharacterDetails()
     }
     
     private func setupLabels() {
         characterNameLabel.setupLabelWith(text: "", size: 18, weight: .bold)
         characterDescLabel.setupLabelWith(text: "", size: 14, weight: .semibold)
+    }
+    
+    private func fetchCharacterDetails() {
+        showLoader()
+        interactor?.fetchCharacterDetails(for: id ?? 0)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

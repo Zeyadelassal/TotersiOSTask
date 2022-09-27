@@ -9,5 +9,6 @@ target 'TotersiOSTask' do
 
    pod 'Kingfisher'
    pod 'Alamofire'
+   pod 'lottie-ios'
 
 end

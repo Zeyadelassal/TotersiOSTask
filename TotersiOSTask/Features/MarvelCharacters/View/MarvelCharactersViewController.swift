@@ -34,6 +34,7 @@ class MarvelCharactersViewController: UIViewController {
     
     func fetchMarvelCharacters() {
         isFetchingData = true
+        showLoader()
         interactor?.fetchMarvelCharacters()
     }
 }

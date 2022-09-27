@@ -35,6 +35,7 @@ extension CharacterDetailsViewController: CharacterDetailsViewProtocol {
     }
     
     func reloadData() {
+        stopLoader()
         characterDetailsTableView.reloadData()
     }
 }
