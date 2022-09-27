@@ -7,11 +7,6 @@
 
 import Foundation
 
-class Person {
-    var age = 12
-    var name = "Zeyad"
-}
-
 class CacheManager {
     
     private init(){}
