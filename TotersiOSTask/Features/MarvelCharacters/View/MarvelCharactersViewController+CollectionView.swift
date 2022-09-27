@@ -19,7 +19,7 @@ extension MarvelCharactersViewController: UICollectionViewDelegate {
     }
     
     @objc func refresh() {
-        interactor?.fetchMarvelCharacters(isRefreshing: true)
+        fetchMarvelCharacters(isLoading: false, isRefreshing: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -63,7 +63,7 @@ extension MarvelCharactersViewController: UICollectionViewDataSourcePrefetching 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             if indexPath.item >= characters.count - 3 && !isFetchingData {
-                fetchMarvelCharacters()
+                fetchMarvelCharacters(isLoading: false, isRefreshing: false)
             }
         }
     }

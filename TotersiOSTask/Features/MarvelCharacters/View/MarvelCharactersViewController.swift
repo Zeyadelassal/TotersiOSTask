@@ -24,7 +24,7 @@ class MarvelCharactersViewController: UIViewController {
         MarvelCharactersConfigurator.configureScene(viewController: self)
         setColorViews(hidden: true)
         setupCollectionView()
-        fetchMarvelCharacters()
+        fetchMarvelCharacters(isLoading: true, isRefreshing: false)
     }
     
     func setColorViews(hidden: Bool) {
@@ -32,10 +32,12 @@ class MarvelCharactersViewController: UIViewController {
         lowerColorView.isHidden = hidden
     }
     
-    func fetchMarvelCharacters() {
+    func fetchMarvelCharacters(isLoading: Bool, isRefreshing: Bool) {
         isFetchingData = true
-        showLoader()
-        interactor?.fetchMarvelCharacters()
+        if isLoading {
+            showLoader()
+        }
+        interactor?.fetchMarvelCharacters(isRefreshing: isRefreshing)
     }
 }
 
