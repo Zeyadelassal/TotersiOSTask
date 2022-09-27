@@ -14,4 +14,6 @@ protocol CharacterDetailsViewProtocol: AnyObject {
     func updateCharacterStories(title: String, stories: [CharacterStories.ViewModel])
     func updateCharacterSeries(title: String, series: [CharacterSeries.ViewModel])
     func reloadData()
+    func showError(errorMessage: String)
+    func showErrorView(errorMessage: String)
 }

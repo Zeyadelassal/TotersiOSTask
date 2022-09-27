@@ -9,4 +9,6 @@ import Foundation
 
 protocol MarvelCharactersViewProtocol: AnyObject {
     func updateCharactersList(charactersViewModel: [CharactersList.ViewModel])
+    func showError(errorMessage: String)
+    func showErrorView(errorMessage: String)
 }

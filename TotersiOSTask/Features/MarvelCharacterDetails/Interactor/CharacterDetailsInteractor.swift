@@ -18,10 +18,10 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
     var characterEvents: [CharacterEvents.Event]?
     var characterSeries: [CharacterSeries.Series]?
     private var id: Int = 0
-    let cache = NSCache<NSString, Person>()
-
+    private var isAPIFailed = false
     func fetchCharacterDetails(for id: Int) {
         self.id = id
+        isAPIFailed = false
         getCharacterDetails()
         getCharacterComics()
         getCharacterEvents()
@@ -160,6 +160,7 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
         let dispatchWorkItem = DispatchWorkItem() {
             [weak self] in
             guard let self = self else {return}
+            guard !(self.isAPIFailed) else {return}
             self.presenter?.handleCharacterDetails(character: self.characterDetails)
             self.presenter?.handleCharacterComics(comics: self.characterComics)
             self.presenter?.handleCharacterEvents(events: self.characterEvents)
@@ -171,6 +172,8 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
     }
     
     private func handleError(error: ResponseError) {
+        isAPIFailed = true
+        dispatchGroup.leave()
         presenter?.showError(error: error)
     }
 }

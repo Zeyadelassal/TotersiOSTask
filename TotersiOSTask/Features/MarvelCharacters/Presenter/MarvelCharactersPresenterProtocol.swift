@@ -10,6 +10,7 @@ import Foundation
 protocol MarvelCharactersPresenterProtocol: AnyObject {
     func handleCharactersList(characters: [Character])
     func showError(error: ResponseError)
+    
 }
 
 

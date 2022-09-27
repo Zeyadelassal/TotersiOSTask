@@ -16,51 +16,50 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterProtocol {
             let characterDetailsViewModel = getCharacterDetailsViewModel(character: character)
             view?.updateCharacterDetails(characterDetails: characterDetailsViewModel)
         } else {
-            
+            view?.showErrorView(errorMessage: ResponseError.unknown.errorDescription ?? CONST_STRING.ERROR.GENERAL)
         }
     }
     
     func handleCharacterComics(comics: [CharacterComics.Comic]?) {
+        var comicsViewModel = [CharacterComics.ViewModel] ()
         if let comics = comics {
-            let comicsViewModel = getCharacterComicsViewModel(comics: comics)
-            view?.updateCharacterComics(title: CONST_STRING.HEADER_TITLE.COMICS + " (\(comicsViewModel.count))", comics: comicsViewModel)
-        } else {
-            
+            comicsViewModel = getCharacterComicsViewModel(comics: comics)
         }
+        view?.updateCharacterComics(title: CONST_STRING.HEADER_TITLE.COMICS + " (\(comicsViewModel.count))", comics: comicsViewModel)
     }
     
     func handleCharacterEvents(events: [CharacterEvents.Event]?) {
+        var eventsViewModel = [CharacterEvents.ViewModel]()
         if let events = events {
-            let eventsViewModel = getCharacterEventsViewModel(events: events)
-            view?.updateCharacterEvents(title: CONST_STRING.HEADER_TITLE.EVENTS + " (\(eventsViewModel.count))", events: eventsViewModel)
-        } else {
-            
+            eventsViewModel = getCharacterEventsViewModel(events: events)
         }
+        view?.updateCharacterEvents(title: CONST_STRING.HEADER_TITLE.EVENTS + " (\(eventsViewModel.count))", events: eventsViewModel)
     }
     
     func handleCharacterStories(stories: [CharacterStories.Story]?) {
+        var storiesViewModel = [CharacterStories.ViewModel]()
         if let stories = stories {
-            let storiesViewModel = getCharacterStoriesViewModel(stories: stories)
-            view?.updateCharacterStories(title: CONST_STRING.HEADER_TITLE.STORIES + " (\(storiesViewModel.count))", stories: storiesViewModel)
-        } else {
-            
+            storiesViewModel = getCharacterStoriesViewModel(stories: stories)
         }
+        view?.updateCharacterStories(title: CONST_STRING.HEADER_TITLE.STORIES + " (\(storiesViewModel.count))", stories: storiesViewModel)
     }
     
-  
-    
     func handleCharacterSeries(series: [CharacterSeries.Series]?) {
+        var seriesViewModel = [CharacterSeries.ViewModel]()
         if let series = series {
-            let seriesViewModel = getCharacterSeriesViewModel(series: series)
-            view?.updateCharacterSeries(title: CONST_STRING.HEADER_TITLE.SERIES + " (\(seriesViewModel.count))", series: seriesViewModel)
-            view?.reloadData()
-        } else {
-            
+            seriesViewModel = getCharacterSeriesViewModel(series: series)
         }
+        view?.updateCharacterSeries(title: CONST_STRING.HEADER_TITLE.SERIES + " (\(seriesViewModel.count))", series: seriesViewModel)
+        view?.reloadData()
     }
     
     func showError(error: ResponseError) {
-        
+        switch error {
+        case .offline, .decoding, .unauthenticated, .unknown :
+            view?.showErrorView(errorMessage: error.errorDescription ?? error.localizedDescription)
+        case .network(let message,_), .serverError(message: let message,_):
+            view?.showErrorView(errorMessage: message)
+        }
     }
     
     private func getCharacterDetailsViewModel(character: Character) -> CharacterDetails.ViewModel {

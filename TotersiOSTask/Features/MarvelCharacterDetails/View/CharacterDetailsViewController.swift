@@ -17,6 +17,7 @@ class CharacterDetailsViewController: UIViewController{
     
     var interactor: CharacterDetailsInteractorProtocol?
     var router: CharacterDetailsRouterProtocol?
+    var retryCounts: Int = 0
     var id: Int?
     
     var sections: [CharacterDetailsSection] = []
@@ -34,7 +35,7 @@ class CharacterDetailsViewController: UIViewController{
         characterDescLabel.setupLabelWith(text: "", size: 14, weight: .semibold)
     }
     
-    private func fetchCharacterDetails() {
+    func fetchCharacterDetails() {
         showLoader()
         interactor?.fetchCharacterDetails(for: id ?? 0)
     }

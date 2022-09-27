@@ -16,28 +16,21 @@ class MarvelCharactersPresenter: MarvelCharactersPresenterProtocol {
             let charactersViewModel = getCharactersViewModel(characters: characters)
             view?.updateCharactersList(charactersViewModel: charactersViewModel)
         } else {
-            
+            view?.showErrorView(errorMessage: CONST_STRING.ERROR.EMPTY_DATA)
         }
     }
     
     func showError(error: ResponseError) {
-        
+        switch error {
+        case .offline:
+            view?.showErrorView(errorMessage: error.errorDescription ?? error.localizedDescription)
+        case .decoding, .unauthenticated, .unknown :
+            view?.showError(errorMessage: error.errorDescription ?? error.localizedDescription )
+        case .network(let message,_), .serverError(message: let message,_):
+            view?.showError(errorMessage: message)
+        }
     }
-    
-//    func handleCharactersList(result: Result<CharactersList.Response, ResponseError>) {
-//        switch result {
-//        case .success(let value):
-//            if let charactersData = value.data, let characters = charactersData.characters {
-//                let charactersViewModel = getCharactersViewModel(characters: characters)
-//                view?.updateCharactersList(charactersViewModel: charactersViewModel)
-//            } else {
-//                // Error
-//            }
-//        case .failure(let error):
-//            debugPrint("Error",error)
-//        }
-//    }
-    
+        
     private func getCharactersViewModel(characters: [Character]) -> [CharactersList.ViewModel] {
         var charactersViewModel = [CharactersList.ViewModel]()
         for character in characters {

@@ -17,6 +17,7 @@ class MarvelCharactersViewController: UIViewController {
     var router: MarvelCharactersRouterProtocol?
     
     var isFetchingData: Bool = false
+    var retryCounts: Int = 0
     var characters = [CharactersList.ViewModel]()
     
     override func viewDidLoad() {

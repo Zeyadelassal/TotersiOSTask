@@ -36,6 +36,39 @@ extension CharacterDetailsViewController: CharacterDetailsViewProtocol {
     
     func reloadData() {
         stopLoader()
+        removeErrorView()
         characterDetailsTableView.reloadData()
+    }
+    
+    func showError(errorMessage: String) {
+        stopLoader()
+        removeErrorView()
+        showAlert(
+            title: CONST_STRING.ALERT.ERROR,
+            message: errorMessage,
+            actionTitle: CONST_STRING.ALERT.RETRY){
+                [weak self] in
+                guard let self = self else {return}
+                self.handleRetryCounts()
+            }
+    }
+    
+    func showErrorView(errorMessage: String) {
+        stopLoader()
+        showErrorView(target: self, retryAction: #selector(retry), errorMessage: errorMessage)
+    }
+    
+    @objc func retry() {
+        handleRetryCounts()
+    }
+    
+    private func handleRetryCounts() {
+        if retryCounts < 3 {
+            fetchCharacterDetails()
+        } else {
+            removeErrorView()
+            router?.backToCharactersList()
+        }
+        retryCounts += 1
     }
 }

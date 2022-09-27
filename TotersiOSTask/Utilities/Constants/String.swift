@@ -27,4 +27,17 @@ struct CONST_STRING {
     struct LOTTIE {
         static let LOADER       = "ironman-loader"
     }
+    
+    struct ALERT {
+        static let ERROR        = "Error"
+        static let RETRY        = "Retry"
+    }
+    
+    struct ERROR {
+        static let EMPTY_DATA        = "There is no available data"
+        static let CONNECTION        = "Connection is lost, please try again."
+        static let GENERAL           = "Something went wrong."
+        static let AUTHENTICATION    = "Please log in to continue"
+    }
+
 }

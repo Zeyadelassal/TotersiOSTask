@@ -18,15 +18,15 @@ enum ResponseError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .decoding:
-            return "generic_error"
+            return CONST_STRING.ERROR.GENERAL
         case .network(let message,_):
             return message
         case .unauthenticated:
-            return "Please log in to continue"
+            return CONST_STRING.ERROR.AUTHENTICATION
         case .offline:
-            return "banner_no_internet_connection"
+            return CONST_STRING.ERROR.CONNECTION
         case .unknown:
-            return "generic_error"
+            return CONST_STRING.ERROR.GENERAL
         case .serverError(let message,_):
             return message
         }

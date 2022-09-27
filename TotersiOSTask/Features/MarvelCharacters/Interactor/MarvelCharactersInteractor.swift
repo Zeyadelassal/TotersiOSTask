@@ -27,10 +27,10 @@ class MarvelCharactersInteractor: MarvelCharactersInteractorProtocol, MarvalChar
                     self.offset += 20
                     self.presenter?.handleCharactersList(characters: characters)
                 } else {
-                    debugPrint("Error",value.error)
+                    self.presenter?.showError(error: value.error)
                 }
             case .failure(let error):
-                debugPrint("Error",error)
+                self.presenter?.showError(error: error)
             }
         }
     }
