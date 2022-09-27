@@ -162,8 +162,8 @@ class CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
             guard let self = self else {return}
             self.presenter?.handleCharacterDetails(character: self.characterDetails)
             self.presenter?.handleCharacterComics(comics: self.characterComics)
-            self.presenter?.handleCharacterStories(stories: self.characterStories)
             self.presenter?.handleCharacterEvents(events: self.characterEvents)
+            self.presenter?.handleCharacterStories(stories: self.characterStories)
             self.presenter?.handleCharacterSeries(series: self.characterSeries)
         }
         dispatchGroup.notify(queue: .main, work: dispatchWorkItem)

@@ -8,6 +8,14 @@
 import Foundation
 
 struct CONST_STRING {
+    
+    struct HEADER_TITLE {
+        static let COMICS       = "Comics"
+        static let EVENTS       = "Events"
+        static let STORIES      = "Stories"
+        static let SERIES       = "Series"
+    }
+    
     struct CACHE {
         static let DETAILS      = "details"
         static let COMICS       = "comics"

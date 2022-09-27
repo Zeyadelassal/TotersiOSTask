@@ -23,16 +23,7 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterProtocol {
     func handleCharacterComics(comics: [CharacterComics.Comic]?) {
         if let comics = comics {
             let comicsViewModel = getCharacterComicsViewModel(comics: comics)
-            view?.updateCharacterComics(title: "Comics", comics: comicsViewModel)
-        } else {
-            
-        }
-    }
-    
-    func handleCharacterStories(stories: [CharacterStories.Story]?) {
-        if let stories = stories {
-            let storiesViewModel = getCharacterStoriesViewModel(stories: stories)
-            view?.updateCharacterStories(title: "Stories", stories: storiesViewModel)
+            view?.updateCharacterComics(title: CONST_STRING.HEADER_TITLE.COMICS + " (\(comicsViewModel.count))", comics: comicsViewModel)
         } else {
             
         }
@@ -41,16 +32,27 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterProtocol {
     func handleCharacterEvents(events: [CharacterEvents.Event]?) {
         if let events = events {
             let eventsViewModel = getCharacterEventsViewModel(events: events)
-            view?.updateCharacterEvents(title: "Events", events: eventsViewModel)
+            view?.updateCharacterEvents(title: CONST_STRING.HEADER_TITLE.EVENTS + " (\(eventsViewModel.count))", events: eventsViewModel)
         } else {
             
         }
     }
     
+    func handleCharacterStories(stories: [CharacterStories.Story]?) {
+        if let stories = stories {
+            let storiesViewModel = getCharacterStoriesViewModel(stories: stories)
+            view?.updateCharacterStories(title: CONST_STRING.HEADER_TITLE.STORIES + " (\(storiesViewModel.count))", stories: storiesViewModel)
+        } else {
+            
+        }
+    }
+    
+  
+    
     func handleCharacterSeries(series: [CharacterSeries.Series]?) {
         if let series = series {
             let seriesViewModel = getCharacterSeriesViewModel(series: series)
-            view?.updateCharacterSeries(title: "Series", series: seriesViewModel)
+            view?.updateCharacterSeries(title: CONST_STRING.HEADER_TITLE.SERIES + " (\(seriesViewModel.count))", series: seriesViewModel)
             view?.reloadData()
         } else {
             
