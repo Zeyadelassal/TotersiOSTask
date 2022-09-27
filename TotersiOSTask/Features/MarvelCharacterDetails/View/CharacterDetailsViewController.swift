@@ -45,6 +45,10 @@ class CharacterDetailsViewController: UIViewController{
         }
     }
     
+    @IBAction func back(_ sender: Any) {
+        router?.backToCharactersList()
+    }
+    
     deinit {
         characterDetailsTableView.removeObserver(self, forKeyPath: "contentSize")
     }

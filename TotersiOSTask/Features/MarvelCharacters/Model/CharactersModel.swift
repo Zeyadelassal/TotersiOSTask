@@ -51,7 +51,7 @@ enum CharactersList {
     }
 }
 
-struct Character: Codable {
+class Character: Codable {
     let id: Int?
     let name: String?
     let desc: String?

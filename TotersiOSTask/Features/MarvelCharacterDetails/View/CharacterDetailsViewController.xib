@@ -78,6 +78,18 @@
                                         <constraint firstItem="MST-Rj-K1J" firstAttribute="leading" secondItem="Y1a-MO-jdV" secondAttribute="leading" id="zcg-co-hxl"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg4-Pj-bJB">
+                                    <rect key="frame" x="8" y="35.666666666666671" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="Shq-gX-znL"/>
+                                        <constraint firstAttribute="width" secondItem="qg4-Pj-bJB" secondAttribute="height" multiplier="1:1" id="XyM-rQ-JVS"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="back"/>
+                                    <connections>
+                                        <action selector="back:" destination="-1" eventType="touchUpInside" id="xJf-oL-xUd"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -86,7 +98,9 @@
                                 <constraint firstItem="04h-5w-vmZ" firstAttribute="leading" secondItem="AX4-Ea-21e" secondAttribute="leading" id="NDN-yc-hm3"/>
                                 <constraint firstItem="Y1a-MO-jdV" firstAttribute="leading" secondItem="AX4-Ea-21e" secondAttribute="leading" id="QuS-rE-DVi"/>
                                 <constraint firstItem="Y1a-MO-jdV" firstAttribute="top" secondItem="04h-5w-vmZ" secondAttribute="bottom" constant="8" id="bqC-aQ-Py9"/>
+                                <constraint firstItem="qg4-Pj-bJB" firstAttribute="leading" secondItem="AX4-Ea-21e" secondAttribute="leading" constant="8" id="cGK-fj-c0F"/>
                                 <constraint firstAttribute="trailing" secondItem="04h-5w-vmZ" secondAttribute="trailing" id="loI-Fx-PJv"/>
+                                <constraint firstItem="qg4-Pj-bJB" firstAttribute="top" secondItem="04h-5w-vmZ" secondAttribute="top" constant="16" id="nQv-9I-6h6"/>
                                 <constraint firstAttribute="bottom" secondItem="Y1a-MO-jdV" secondAttribute="bottom" id="xYc-C4-gUS"/>
                             </constraints>
                         </view>
@@ -115,6 +129,7 @@
         </view>
     </objects>
     <resources>
+        <image name="back" width="128" height="128"/>
         <namedColor name="MarvelBlue">
             <color red="0.31764705882352939" green="0.5490196078431373" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

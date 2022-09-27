@@ -63,4 +63,5 @@ class CharacterDetailsWorker: CharacterDetailsWorkerProtocol {
             onFetch(.failure(error))
         }
     }
+    
 }

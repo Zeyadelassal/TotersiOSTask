@@ -8,7 +8,9 @@
 import UIKit
 
 class CharacterDetailsRouter: CharacterDetailsRouterProtocol {
-    
     weak var view: UIViewController?
     
+    func backToCharactersList() {
+        view?.navigationController?.popViewController(animated: true)
+    }
 }
