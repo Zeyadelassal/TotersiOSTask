@@ -20,4 +20,13 @@ import UIKit
         return cell
     }
     
+     func setupRefreshControl(target: Any, onRefresh: Selector) {
+         let refreshControl = UIRefreshControl()
+         self.refreshControl = refreshControl
+         self.refreshControl?.addTarget(target, action: onRefresh, for: .valueChanged)
+     }
+     
+     func endRefresh() {
+         refreshControl?.endRefreshing()
+     }
 }
